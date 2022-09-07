@@ -14,26 +14,30 @@ class ContactScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Image(
-              image: const NetworkImage(
-                  'https://miro.medium.com/max/1400/0*CZIHfc84uj0rrhu-'),
+            Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  opacity: 0.8,
+                  image: NetworkImage(
+                    'https://blog.logrocket.com/wp-content/uploads/2021/03/flutter-custompaint-shape-maker.png',
+                  ),
+                ),
+              ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
-                    height: 125,
+                    height: 50,
                   ),
                   Text(
                     'Minhas redes sociais para um melhor contato!\n LinkedIn e GitHub',
                     style: GoogleFonts.elMessiri(
                       textStyle: const TextStyle(
                         fontSize: 25,
-                        color: Colors.black54,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -41,29 +45,50 @@ class ContactScreen extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  IconButton(
-                    onPressed: () {
-                      html.window.open(
-                          'https://www.linkedin.com/in/manoel-am%C3%A2ncio/',
-                          "_blank");
-                    },
-                    icon: const Icon(
-                      MdiIcons.linkedin,
-                      size: 55,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      html.window
-                          .open('https://github.com/ManoelASNeto', "_blank");
-                    },
-                    icon: const Icon(
-                      MdiIcons.github,
-                      size: 55,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              html.window.open(
+                                  'https://www.linkedin.com/in/manoel-am%C3%A2ncio/',
+                                  "_blank");
+                            },
+                            icon: const Icon(
+                              MdiIcons.linkedin,
+                              size: 55,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              html.window.open(
+                                  'https://github.com/ManoelASNeto', "_blank");
+                            },
+                            icon: const Icon(
+                              MdiIcons.github,
+                              size: 55,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              MdiIcons.gmail,
+                              size: 55,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
