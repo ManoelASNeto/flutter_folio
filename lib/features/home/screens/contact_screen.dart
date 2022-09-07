@@ -16,21 +16,11 @@ class ContactScreen extends StatelessWidget {
           children: [
             Image(
               image: const NetworkImage(
-                  'https://img.ibxk.com.br/2019/10/29/flutter-29101357380259.jpg'),
+                  'https://miro.medium.com/max/1400/0*CZIHfc84uj0rrhu-'),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
-            /*TextButton(
-              onPressed: () {
-                html.window.open('https://github.com/ManoelASNeto', "_blank");
-              },
-              child: const Image(
-                image: NetworkImage(
-                    'http://cdn.onlinewebfonts.com/svg/img_44003.png',
-                    scale: 15),
-              ),
-            ),*/
             Padding(
               padding: const EdgeInsets.all(20),
               child: Column(

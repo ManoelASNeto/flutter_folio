@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_folio/features/about/about_screen.dart';
 import 'package:flutter_folio/features/home/screens/contact_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -41,7 +42,13 @@ class HomeScreen extends StatelessWidget {
                         width: 30,
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const AboutScreen(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Sobre',
                           style: GoogleFonts.elMessiri(
@@ -94,6 +101,11 @@ class HomeScreen extends StatelessWidget {
                       textStyle:
                           const TextStyle(fontSize: 18, color: Colors.white),
                     ),
+                  ),
+                  const Divider(
+                    color: Colors.white,
+                    thickness: 2,
+                    endIndent: 50,
                   ),
                   const SizedBox(
                     height: 10,
