@@ -1,188 +1,164 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_folio/features/about/about_screen.dart';
-import 'package:flutter_folio/features/home/screens/contact_screen.dart';
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter_folio/features/home/screens/portfolio_screen.dart';
-
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
-  final PageController _pageController = PageController();
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          children: const [
-            ScreenOne(),
-            PortFolioScreen(),
-            AboutScreen(),
-            ContactScreen(),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        containerHeight: 40,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        backgroundColor: Colors.grey[50],
-        selectedIndex: _currentIndex,
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-              icon: const Icon(
-                Icons.home,
-              ),
-              title: Text(
-                'Inicio',
-                style: GoogleFonts.elMessiri(
-                  textStyle: const TextStyle(
-                    color: Colors.blue,
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.blueAccent,
+                Colors.blue,
+                Colors.lightBlue,
+                Colors.lightBlueAccent,
+                Colors.lightBlueAccent,
+                Colors.lightBlue,
+                Colors.blue,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 50,
+            ),
+            child: ListView(
+              children: [
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'Olá!\nSeja bem Vindo ao meu PortFólio Flutter',
+                  style: GoogleFonts.lemonada(
+                    textStyle: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              textAlign: TextAlign.center),
-          BottomNavyBarItem(
-            icon: const Icon(
-              Icons.folder,
-            ),
-            title: Text(
-              'Portfólio',
-              style: GoogleFonts.elMessiri(
-                textStyle: const TextStyle(
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: const Icon(
-              Icons.info,
-            ),
-            title: Text(
-              'Sobre',
-              style: GoogleFonts.elMessiri(
-                textStyle: const TextStyle(
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: const Icon(
-              Icons.call,
-              color: Colors.blueAccent,
-              size: 20,
-            ),
-            title: Text(
-              'Contato',
-              style: GoogleFonts.elMessiri(
-                textStyle: const TextStyle(
-                  color: Colors.blueAccent,
-                ),
-              ),
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-        onItemSelected: (index) => setState(
-          () {
-            _currentIndex = index;
-            _pageController.jumpToPage(
-              index,
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class ScreenOne extends StatelessWidget {
-  const ScreenOne({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.blueAccent,
-            Colors.blue,
-            Colors.lightBlue,
-            Colors.lightBlueAccent,
-            Colors.white,
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 50,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            Text(
-              'Olá!\nSeja bem Vindo ao meu PortFólio Flutter',
-              style: GoogleFonts.lemonada(
-                textStyle: const TextStyle(
-                  fontSize: 18,
+                const Divider(
                   color: Colors.white,
+                  thickness: 2,
+                  endIndent: 50,
                 ),
-              ),
-            ),
-            const Divider(
-              color: Colors.white,
-              thickness: 2,
-              endIndent: 50,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Me chamo Manoel Amâncio.\nE sou Desenvolvedor Mobile Flutter',
-              style: GoogleFonts.elMessiri(
-                textStyle: const TextStyle(
-                  fontSize: 35,
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Me chamo Manoel Amâncio.\nE sou Desenvolvedor Mobile Flutter',
+                  style: GoogleFonts.elMessiri(
+                    textStyle: const TextStyle(
+                      fontSize: 35,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      color: Colors.white,
+                      onPressed: () {
+                        html.window.open(
+                            'https://www.linkedin.com/in/manoel-am%C3%A2ncio/',
+                            "_blank");
+                      },
+                      icon: const Icon(
+                        MdiIcons.linkedin,
+                        size: 50,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    IconButton(
+                      color: Colors.white,
+                      onPressed: () {},
+                      icon: const Icon(
+                        MdiIcons.github,
+                        size: 50,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 25,
+                    ),
+                    IconButton(
+                      color: Colors.white,
+                      onPressed: () {},
+                      icon: const Icon(
+                        MdiIcons.instagram,
+                        size: 50,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 75,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 205),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          elevation: 5,
+                          shadowColor: Colors.amber,
+                          padding: const EdgeInsets.all(22),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          'Baixar Cv',
+                          style: GoogleFonts.elMessiri(
+                            textStyle: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 150,
+                ),
+                Text(
+                  'Sobre',
+                  style: GoogleFonts.lemonada(
+                    textStyle: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const Divider(
                   color: Colors.white,
+                  thickness: 2,
+                  endIndent: 50,
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Flutter é um framework cross-platform\npara se escrever apps Android, iOS, Desktop e rodar com uma performance nativa.',
-              style: GoogleFonts.elMessiri(
-                textStyle: const TextStyle(
+                const SizedBox(
+                  height: 10,
+                ),
+                const AboutScreen(),
+                const Divider(
                   color: Colors.white,
-                  fontSize: 18,
+                  thickness: 2,
+                  endIndent: 50,
                 ),
-              ),
+                const PortFolioScreen(),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

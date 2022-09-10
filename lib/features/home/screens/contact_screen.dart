@@ -52,11 +52,7 @@ class ContactScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           IconButton(
-                            onPressed: () {
-                              html.window.open(
-                                  'https://www.linkedin.com/in/manoel-am%C3%A2ncio/',
-                                  "_blank");
-                            },
+                            onPressed: () {},
                             icon: const Icon(
                               MdiIcons.linkedin,
                               size: 55,
