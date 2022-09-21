@@ -16,9 +16,19 @@ class PortFolioScreen extends StatelessWidget {
               'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt',
         ),
         CardCustom(
+          isImageRight: true,
           image: 'images/rick_e_morty.png',
-          description: 'Segundo app Desenvolvido',
-          toolsUsed: '',
+          description:
+              'Aplicativo desenvolvido que mostra todos os mais de 600 \npersonagens da série animada Rick e Morty',
+          toolsUsed:
+              'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt, \ndartZ',
+        ),
+        CardCustom(
+          image: 'images/buscador.png',
+          description:
+              'Buscador de Ceps, \nque traz o endereço, municipio e ddd do cep informado',
+          toolsUsed:
+              'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt, \nGoogle Fonts',
         ),
       ],
     );

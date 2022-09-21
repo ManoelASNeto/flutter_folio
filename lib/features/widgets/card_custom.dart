@@ -4,67 +4,61 @@ class CardCustom extends StatelessWidget {
   final String? image;
   final String? description;
   final String? toolsUsed;
+  final bool isImageRight;
   const CardCustom({
     super.key,
     required this.image,
     required this.description,
     this.toolsUsed,
+    this.isImageRight = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final itemsContent = [
+      Image.asset(
+        image!,
+        height: 320,
+        width: 280,
+      ),
+      const SizedBox(
+        width: 80,
+      ),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            description!,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          Text(
+            toolsUsed!,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+            ),
+          ),
+        ],
+      ),
+    ];
     return Container(
       margin: const EdgeInsets.all(30),
       height: 300,
       width: MediaQuery.of(context).size.width - 80,
-      decoration: BoxDecoration(
-        color: Colors.transparent.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 10),
-              child: Image.asset(
-                image!,
-                height: 320,
-                width: 280,
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 100,
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  description!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Text(
-                  toolsUsed!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:
+              isImageRight ? itemsContent.reversed.toList() : itemsContent,
+        ),
       ),
     );
   }

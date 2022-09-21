@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_folio/features/about/about_screen.dart';
 import 'package:flutter_folio/features/home/screens/portfolio_screen.dart';
+import 'package:flutter_folio/features/widgets/divider_custom.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 // ignore: avoid_web_libraries_in_flutter
@@ -49,11 +50,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Divider(
-                  color: Colors.white,
-                  thickness: 2,
-                  endIndent: 50,
-                ),
+                const DividerCustom(),
                 const SizedBox(
                   height: 10,
                 ),
@@ -74,9 +71,8 @@ class HomeScreen extends StatelessWidget {
                     IconButton(
                       color: Colors.white,
                       onPressed: () {
-                        html.window.open(
-                            'https://www.linkedin.com/in/manoel-am%C3%A2ncio/',
-                            "_blank");
+                        openUrl(
+                            'https://www.linkedin.com/in/manoel-am%C3%A2ncio/');
                       },
                       icon: const Icon(
                         MdiIcons.linkedin,
@@ -88,7 +84,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                     IconButton(
                       color: Colors.white,
-                      onPressed: () {},
+                      onPressed: () {
+                        openUrl('https://github.com/ManoelASNeto');
+                      },
                       icon: const Icon(
                         MdiIcons.github,
                         size: 50,
@@ -99,7 +97,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                     IconButton(
                       color: Colors.white,
-                      onPressed: () {},
+                      onPressed: () {
+                        openUrl(
+                            'https://www.instagram.com/manoel_amanciosilva/');
+                      },
                       icon: const Icon(
                         MdiIcons.instagram,
                         size: 50,
@@ -127,6 +128,19 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      width: 200,
+                    ),
+                    CircleAvatar(
+                      radius: 150,
+                      backgroundColor: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Image.asset(
+                          'images/perfil.jpeg',
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 const SizedBox(
@@ -141,26 +155,25 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Divider(
-                  color: Colors.white,
-                  thickness: 2,
-                  endIndent: 50,
-                ),
+                const DividerCustom(),
                 const SizedBox(
                   height: 10,
                 ),
                 const AboutScreen(),
-                const Divider(
-                  color: Colors.white,
-                  thickness: 2,
-                  endIndent: 50,
-                ),
+                const DividerCustom(),
                 const PortFolioScreen(),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  void openUrl(String url) {
+    html.window.open(
+      url,
+      "_blank",
     );
   }
 }
