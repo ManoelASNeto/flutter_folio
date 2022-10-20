@@ -15,20 +15,37 @@ class PortFolioScreen extends StatelessWidget {
           toolsUsed:
               'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt',
         ),
+        SizedBox(
+          height: 10,
+        ),
         CardCustom(
           isImageRight: true,
-          image: 'images/rick_e_morty.png',
+          image: 'images/rick.jpg',
           description:
               'Aplicativo desenvolvido que mostra todos os mais de 600 \npersonagens da série animada Rick e Morty',
           toolsUsed:
-              'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt, \ndartZ',
+              'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt,',
+        ),
+        SizedBox(
+          height: 10,
         ),
         CardCustom(
           image: 'images/buscador.png',
           description:
               'Buscador de Ceps, \nque traz o endereço, municipio e ddd do cep informado',
           toolsUsed:
-              'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt, \nGoogle Fonts',
+              'Ferramentas utilizadas: \n*Clean Architecture, \n*API Rest, \n*BloC, \n*Equatable, \n*getIt, \n*Google Fonts',
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        CardCustom(
+          isImageRight: true,
+          image: 'images/rick_and_morty.jpg',
+          description:
+              'Aplicativo desenvolvido que mostra todos os mais de 600 \npersonagens da série animada Rick e Morty',
+          toolsUsed:
+              'Ferramentas utilizadas:\n*MVC, \n*API Rest, \n*MobX, \n*GetIt, \n*Fonte Personalizada',
         ),
       ],
     );

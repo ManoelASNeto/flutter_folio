@@ -38,9 +38,10 @@ dependencies:
   flutter_web_browser: ^0.17.1
   url_launcher: ^6.1.5
   material_design_icons_flutter: ^5.0.6996
-  bottom_navy_bar: ^6.0.0
+  glass: ^1.0.1+1
+  
   dependencies:
-  rive: ^0.9.1
+ 
 
 dev_dependencies:
   flutter_test:

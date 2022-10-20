@@ -5,10 +5,17 @@ class DividerCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(
-      color: Colors.white,
-      thickness: 2,
-      endIndent: 50,
+    return Column(
+      children: const [
+        Divider(
+          color: Colors.white,
+          thickness: 2,
+          endIndent: 50,
+        ),
+        SizedBox(
+          height: 30,
+        )
+      ],
     );
   }
 }

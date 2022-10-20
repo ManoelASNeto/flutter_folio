@@ -49,12 +49,22 @@ class CardCustom extends StatelessWidget {
       ),
     ];
     return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [
+          const Color(0xff1c92d2).withOpacity(0.2),
+          const Color(0xfff2fcfe).withOpacity(0.3),
+        ]),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16),
+        ),
+      ),
       margin: const EdgeInsets.all(30),
       height: 300,
-      width: MediaQuery.of(context).size.width - 80,
+      width: MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children:
               isImageRight ? itemsContent.reversed.toList() : itemsContent,
